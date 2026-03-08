@@ -10,7 +10,8 @@ RUN apt-get update && \
 
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 
-RUN useradd -m -s /bin/bash claude && mkdir -p /app && chown claude:claude /app
+RUN usermod -l claude -d /home/claude -m node && groupmod -n claude node \
+    && mkdir -p /app && chown claude:claude /app
 
 # Install Claude CLI
 RUN npm install -g @anthropic-ai/claude-code && npm cache clean --force
