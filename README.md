@@ -1,10 +1,12 @@
 # Claude Ask No Questions - in Docker
 
+I got tired of Claude's persistent questions and want Claude to just run. But also don't want it to accidentally wipe my hard drive.
+
+## What is this
+
 Docker image with Node.js 24, Python 3, and [Claude CLI](https://github.com/anthropics/claude-code) running in a Docker container.
 
 ## Why this exists
-
-I got tired of Claude's persistent questions and want Claude to just run. But also don't want it to accidentally wipe my hard drive.
 
 Claude Code's `--dangerously-skip-permissions` flag enables fully autonomous operation — no confirmation prompts before file edits, shell commands, or other actions. This is powerful but risky on a bare host: Claude can modify or delete any file your user account can access, run arbitrary shell commands, install packages globally, and more.
 
