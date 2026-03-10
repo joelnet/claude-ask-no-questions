@@ -30,7 +30,7 @@ Running inside a Docker container provides natural sandboxing. Claude can only a
 
 ## Build
 
-Build the container. Be sure to re-build it after any Dockerfile edits.
+Clone this repo and build the container. Be sure to re-build it after any `Dockerfile` edits.
 
 ```sh
 docker build -t claude-docker .
