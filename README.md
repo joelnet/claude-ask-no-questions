@@ -44,10 +44,17 @@ After building, use the included shell script to launch. I copied this into `~/.
 ./claude.sh
 ```
 
+Start Claude normally:
+
+```bash
+# TIP: I usually rename `claude.sh` to `claudex` (on mac/linux)
+claudex
+```
+
 Pass extra arguments directly:
 
 ```sh
-./claude.sh -p "fix the bug"
+./claude -p "fix the bug"
 ```
 
 The script creates `~/.claude.docker` if needed and runs the container with `--dangerously-skip-permissions` by default.
