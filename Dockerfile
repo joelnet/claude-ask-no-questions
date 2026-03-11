@@ -13,8 +13,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 RUN usermod -l claude -d /home/claude -m node && groupmod -n claude node \
     && mkdir -p /app && chown claude:claude /app
 
-# Install Claude CLI
-RUN npm install -g @anthropic-ai/claude-code && npm cache clean --force
+# Install Claude CLI (as root, then fix ownership so the claude user can auto-update)
+RUN npm install -g @anthropic-ai/claude-code && npm cache clean --force \
+    && chown -R claude:claude /usr/local/lib/node_modules /usr/local/bin
 
 COPY --chmod=0755 entrypoint.sh /entrypoint.sh
 
