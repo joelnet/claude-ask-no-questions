@@ -77,13 +77,13 @@ The first time you run the container, Claude CLI will prompt you to sign in via 
 
 Claude CLI requires two things to skip the login prompt:
 
-- **`~/.claude/.credentials.json`** — OAuth tokens (access token, refresh token, expiry)
-- **`~/.claude.json`** — onboarding state, specifically `hasCompletedOnboarding: true`
+- **`~/.claude.json`** — OAuth tokens, onboarding state, and global settings
+- **`~/.claude/`** — user settings and session state
 
-The volume mount (`-v ~/.claude.docker:/home/claude/.claude`) persists the credentials file. The entrypoint script (`entrypoint.sh`) creates the `~/.claude.json` stub automatically on each container start so Claude doesn't re-trigger the onboarding flow.
+The volume mount (`-v ~/.claude.docker:/home/claude/.claude`) persists the data directory. The entrypoint script symlinks `~/.claude.json` into the mounted volume so OAuth tokens also survive container restarts.
 
 ## Included Tools
 
 - **Node.js 24** + npm
 - **Python 3** + pip + venv
-- **Claude CLI** (`@anthropic-ai/claude-code`)
+- **Claude CLI**
