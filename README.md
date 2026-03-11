@@ -30,7 +30,7 @@ Running inside a Docker container provides natural sandboxing. Claude can only a
 
 ## Build
 
-Build the container. Be sure to re-build it after any Dockerfile edits.
+Clone this repo and build the container. Be sure to re-build it after any `Dockerfile` edits.
 
 ```sh
 docker build -t claude-docker .
@@ -44,10 +44,17 @@ After building, use the included shell script to launch. I copied this into `~/.
 ./claude.sh
 ```
 
+Start Claude normally:
+
+```bash
+# TIP: I usually rename `claude.sh` to `claudex` (on mac/linux)
+claudex
+```
+
 Pass extra arguments directly:
 
 ```sh
-./claude.sh -p "fix the bug"
+./claude -p "fix the bug"
 ```
 
 The script creates `~/.claude.docker` if needed and runs the container with `--dangerously-skip-permissions` by default.
