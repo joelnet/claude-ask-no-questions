@@ -2,6 +2,8 @@
 
 I got tired of Claude's persistent questions and want Claude to just run. But also don't want it to accidentally wipe my hard drive.
 
+![Claude Ask No Questions](assets/claude-no-ask.png)
+
 ## What is this
 
 Docker image with Node.js 24, Python 3, and [Claude CLI](https://github.com/anthropics/claude-code) running in a Docker container.
